@@ -1,0 +1,58 @@
+## Devnet Swap Guide
+
+## Install Dependencies (Ubuntu)
+```
+sudo apt update
+sudo apt install -y g++ libssl-dev make cmake pkg-config curl
+```
+
+## Clone and Update WebCLI
+```
+git clone https://github.com/octra-labs/webcli.git
+cd webcli
+git pull
+```
+
+## Build WebCLI
+```
+chmod +x setup.sh
+./setup.sh
+```
+This compiles octra_wallet and required libraries
+
+## Add Your Nano Wallet
+```
+nano wallet.json
+```
+Paste your wallet details:
+```
+{
+  "priv": "YOUR_BASE64_PRIVATE_KEY",
+  "addr": "YOUR_OCT_ADDRESS",
+  "rpc": "http://165.227.225.79:8080"
+}
+```
+
+Save the file:
+Press Ctrl + X
+Press Y
+Press Enter
+
+## Start the Wallet Server
+```
+./octra_wallet
+```
+This launches the local server on port 8420
+
+## Open the Swap Interface
+```
+http://127.0.0.1:8420/swap.html
+```
+
+You’re Ready
+
+If your wallet is detected and funded with devnet OCT, you can now:
+
+Swap OCT ↔ tUSD
+
+Interact with the deployed SWAP contract
